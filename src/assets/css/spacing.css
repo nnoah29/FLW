@@ -1,0 +1,10 @@
+/*
+ * spacing.css — PURGED
+ * The original 39 KB file contained padding/margin utilities from 5px–250px.
+ * Audit confirmed: zero of these classes are used in any Angular template.
+ * All spacing in components uses Bootstrap 5 utilities (mt-*, mb-*, etc.)
+ * or component-scoped CSS.
+ *
+ * File kept to avoid 404 (still listed in angular.json styles[]).
+ * TODO: remove the angular.json reference and delete this file entirely.
+ */
