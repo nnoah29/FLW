@@ -1,0 +1,144 @@
+/* ==============================================================================
+   HOW IT WORKS COMPONENT STYLES
+   Strict separation of roles (no tailwind in HTML)
+   ============================================================================== */
+
+.how {
+  background-color: #000000;
+  padding: 120px 24px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.how__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* En-tête */
+.how__header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.how__title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.how__subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+/* Grille Dashed Borders façon Bento */
+.how__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-right: none;
+  border-bottom: none;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .how__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Feature Card */
+.how__card {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 24px;
+  border-right: 1px dashed rgba(255, 255, 255, 0.1);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  min-height: 260px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.how__card:hover {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* Pattern Containers and Masking */
+.how__card-pattern {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -80px;
+  height: 100%;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, white, transparent);
+  mask-image: linear-gradient(to bottom, white, transparent);
+}
+
+.how__card-pattern-inner {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  -webkit-mask-image: radial-gradient(farthest-side at top, white, transparent);
+  mask-image: radial-gradient(farthest-side at top, white, transparent);
+  opacity: 1;
+}
+
+.how__grid-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: rgba(255, 255, 255, 0.03); /* fill opacity for squares */
+  stroke: rgba(255, 255, 255, 0.05); /* stroke opacity for lines */
+  mix-blend-mode: overlay;
+}
+
+.how__grid-squares {
+  overflow: visible;
+}
+
+/* Contenu */
+.how__content {
+  position: relative;
+  z-index: 20;
+}
+
+.how__icon-wrapper {
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.how__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.how__step-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.how__step-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 90%;
+}

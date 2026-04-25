@@ -1,0 +1,46 @@
+<div class="modal-backdrop" *ngIf="modalService.isModalOpen()" (click)="onClose()">
+  <div class="modal-content" (click)="onContentClick($event)">
+    
+    <!-- Bouton Fermetures -->
+    <button class="modal-close" (click)="onClose()">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <div class="modal-body">
+      <div class="modal-header">
+        <div class="modal-icon-wrap">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1C976D" stroke-width="1.5">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </div>
+        <h2 class="modal-title">Soumettre votre demande</h2>
+        <p class="modal-desc">Saisissez votre e-mail pour recevoir votre lien de soumission sécurisé.</p>
+      </div>
+
+      <form class="modal-form" (submit)="onSubmit($event)">
+        <div class="input-wrap">
+          <input type="email" placeholder="votre@mail.com" required class="modal-input">
+          <svg class="input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </div>
+
+        <button type="submit" class="modal-submit-btn">
+          Envoyer le lien
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14m-7-7 7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+
+      <p class="modal-footer-text">
+        En soumettant votre mail, vous acceptez nos <a href="#">conditions d'utilisation</a>.
+      </p>
+    </div>
+
+    <!-- Glow background inside modal -->
+    <div class="modal-glow"></div>
+  </div>
+</div>

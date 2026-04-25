@@ -1,0 +1,157 @@
+/* ==============================================================================
+   HEADER COMPONENT STYLES
+   Strictly implements a glassmorphic aesthetic using pure CSS (no utility classes)
+   ============================================================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  /* Font should inherit from the body (Inter) but we can enforce sans-serif */
+  font-family: inherit;
+
+  /* Glassmorphism Effect (Full Width) */
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 24px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* -------------------------
+   LEFT SECTION: Logo & Nav
+   ------------------------- */
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header__logo-img {
+  display: block;
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav Tabs */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header__link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: all 0.2s ease;
+}
+
+.header__link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* -------------------------
+   RIGHT SECTION: Actions
+   ------------------------- */
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Search Icon Button */
+.header__btn--search {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header__btn--search:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.header__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Submit Document Button */
+.header__btn--submit {
+  background: #ffffff;
+  color: #050505;
+  padding: 10px 20px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+}
+
+.header__btn--submit:hover {
+  transform: translateY(-1px);
+  background: #f0f0f0;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* -------------------------
+   RESPONSIVE
+   ------------------------- */
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+    /* Hide text tabs on very small mobile if space is tight */
+  }
+
+  .header__container {
+    padding: 8px;
+  }
+
+  .header__btn--submit {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}

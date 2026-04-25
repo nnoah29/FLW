@@ -1,0 +1,120 @@
+<div class="library">
+  <app-library-hero></app-library-hero>
+
+  <div class="library__container-wide">
+    <!-- Frame 1: Filters -->
+    <aside class="library__sidebar-frame">
+      <div class="sidebar-header">
+        <h3 class="sidebar-title">Filtres</h3>
+        <span class="pulse-indicator"></span>
+      </div>
+
+      <div class="filter-section">
+        <h4 class="filter-subtitle">Disciplines</h4>
+        <div class="filter-list">
+          <button *ngFor="let d of disciplines" 
+                  class="filter-link" 
+                  [class.active]="selectedDiscipline() === d"
+                  (click)="setDiscipline(d)">
+            {{ d }}
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h4 class="filter-subtitle">Type</h4>
+        <div class="filter-list">
+          <button *ngFor="let t of types" 
+                  class="filter-link" 
+                  [class.active]="selectedType() === t"
+                  (click)="setType(t)">
+            {{ t }}
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Frame 2: Content -->
+    <div class="library__content-frame">
+      <header class="library__search-cell">
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" 
+                 placeholder="Rechercher par titre, auteur, mot-clé..." 
+                 class="search-input"
+                 [(ngModel)]="searchQuery"
+                 (ngModelChange)="onSearchChange()"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="results-info">
+          <span class="results-label">Résultats : </span>
+          <span class="results-val">{{ filteredDocuments().length }}</span>
+        </div>
+      </header>
+
+      <main class="library__main-grid">
+        <div class="doc-card" *ngFor="let doc of paginatedDocuments()">
+          <!-- Background Pattern -->
+          <div class="doc-card__pattern">
+            <div class="doc-card__pattern-inner"></div>
+          </div>
+  
+          <div class="doc-card__badge" [attr.data-type]="doc.type">
+            {{ doc.type }}
+          </div>
+          
+          <div class="doc-card__content">
+            <div class="doc-card__meta">
+              <span class="doc-discipline">{{ doc.discipline }}</span>
+              <span class="doc-year">{{ doc.year }}</span>
+            </div>
+            
+            <h3 class="doc-title">{{ doc.title }}</h3>
+            <p class="doc-author">Par {{ doc.author }}</p>
+            
+            <div class="doc-card__footer">
+              <span class="doc-uni">{{ doc.university }}</span>
+              <button class="doc-action">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14m-7-7 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Pagination Bar -->
+        <div class="library__pagination" *ngIf="totalPages() > 1">
+          <button class="pagination-btn" 
+                  [disabled]="currentPage() === 1"
+                  (click)="setPage(currentPage() - 1)">
+            &larr;
+          </button>
+          
+          <div class="pagination-pages">
+            <button *ngFor="let p of pages()"
+                    class="pagination-num"
+                    [class.active]="currentPage() === p"
+                    (click)="setPage(p)">
+              {{ p }}
+            </button>
+          </div>
+  
+          <button class="pagination-btn" 
+                  [disabled]="currentPage() === totalPages()"
+                  (click)="setPage(currentPage() + 1)">
+            &rarr;
+          </button>
+        </div>
+  
+        <!-- Empty State -->
+        <div class="library__empty-cell" *ngIf="filteredDocuments().length === 0">
+          <h3>Aucun document</h3>
+          <p>Ajustez vos filtres pour voir plus de résultats.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

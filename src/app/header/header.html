@@ -1,0 +1,36 @@
+<header class="header">
+  <div class="header__container">
+
+    <!-- Left Section -->
+    <div class="header__left">
+      <a routerLink="/" class="header__logo">
+        <img src="/assets/images/logo.png" alt="FriareLibrary Logo" class="header__logo-img" />
+      </a>
+
+      <!-- Nav Tabs -->
+      <nav class="header__nav">
+        <a routerLink="/bibliotheque" class="header__link">Bibliothèque</a>
+        <a href="#" class="header__link">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Right Section -->
+    <div class="header__right">
+
+      <!-- Search Button with Loupe Icon -->
+      <button class="header__btn header__btn--search" aria-label="Rechercher">
+        <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="7" stroke-width="2.5"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2.5" stroke-linecap="round"></line>
+        </svg>
+      </button>
+
+      <!-- Submit Document CTA -->
+      <a href="javascript:void(0)" class="header__btn header__btn--submit" (click)="openModal()">
+        Soumettre un document
+      </a>
+
+    </div>
+
+  </div>
+</header>

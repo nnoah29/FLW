@@ -1,0 +1,117 @@
+<section
+  class="relative min-h-screen bg-[#000000] text-white flex flex-col items-center pt-44 px-6 overflow-hidden font-sans"
+  (mousemove)="onMouseMove($event)">
+
+  <!-- Stars Background (Parallax on Mouse Move) -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <!-- Le fond noir reste inchangé ; les étoiles sont superposées par-dessus -->
+    <div id="stars-parallax" class="absolute inset-0 transition-transform duration-[50ms] ease-out">
+
+      <!-- Layer 1 -->
+      <div id="stars-1" class="absolute top-0 left-0 w-full h-[2000px]">
+        <div class="absolute bg-transparent rounded-full"
+          [ngStyle]="{'width.px': 1, 'height.px': 1, 'box-shadow': stars1}"></div>
+        <div class="absolute bg-transparent rounded-full top-[2000px]"
+          [ngStyle]="{'width.px': 1, 'height.px': 1, 'box-shadow': stars1}"></div>
+      </div>
+
+      <!-- Layer 2 -->
+      <div id="stars-2" class="absolute top-0 left-0 w-full h-[2000px]">
+        <div class="absolute bg-transparent rounded-full"
+          [ngStyle]="{'width.px': 2, 'height.px': 2, 'box-shadow': stars2}"></div>
+        <div class="absolute bg-transparent rounded-full top-[2000px]"
+          [ngStyle]="{'width.px': 2, 'height.px': 2, 'box-shadow': stars2}"></div>
+      </div>
+
+      <!-- Layer 3 -->
+      <div id="stars-3" class="absolute top-0 left-0 w-full h-[2000px]">
+        <div class="absolute bg-transparent rounded-full"
+          [ngStyle]="{'width.px': 3, 'height.px': 3, 'box-shadow': stars3}"></div>
+        <div class="absolute bg-transparent rounded-full top-[2000px]"
+          [ngStyle]="{'width.px': 3, 'height.px': 3, 'box-shadow': stars3}"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== Badge annonce avec effet Magic Card linéaire ===== -->
+  <div class="hero__anim-item mb-10 z-10 w-full flex justify-center">
+    <a href="#"
+      class="relative group inline-flex p-[1px] overflow-hidden hover:shadow-[0_0_20px_rgba(28,151,109,0.3)] transition-all duration-500">
+
+      <!-- Lueur linéaire mouvante de gauche à droite -->
+      <span
+        class="absolute inset-0 bg-gradient-to-r from-transparent via-[#1C976D] to-transparent bg-[length:200%_100%] animate-magic-linear"></span>
+
+      <!-- Contenu du badge (Cache le centre de la lueur pour ne laisser que la bordure) -->
+      <div
+        class="relative w-full h-full bg-[#0a0a0a] px-4 py-1.5 flex items-center gap-3 text-[13px] font-semibold text-white/90 backdrop-blur-xl">
+        <span class="opacity-90 tracking-wide">Recherche universitaire collaborative</span>
+        <span
+          class="text-white/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white">&rarr;</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- ===== Titre principal ===== -->
+  <h1
+    class="hero__anim-item w-full max-w-[1200px] text-center text-[44px] leading-[1.1] md:text-7xl font-extrabold tracking-tighter text-white mb-7 z-10 px-4 md:px-0">
+    Une Vitrine de Savoir<br class="hidden md:block">
+    Recherchez, Publiez un Mémoire
+  </h1>
+
+  <!-- ===== Sous-titre ===== -->
+  <p
+    class="hero__anim-item w-full max-w-[900px] text-center text-[19px] leading-relaxed text-white/50 mb-14 font-normal z-10 px-4 md:px-0">
+    Une vitrine virtuelle des travaux de recherche et de la créativité intellectuelle issus d'institutions académiques
+    en Afrique francophone.
+  </p>
+
+  <!-- ===== Actions ===== -->
+  <div class="hero__anim-item flex flex-col sm:flex-row items-center gap-6 mb-24 z-10 relative">
+    <div class="flex items-center gap-4">
+      <!-- Bouton primaire bords droits ("corporate") -->
+      <a href="javascript:void(0)"
+        class="inline-flex items-center justify-center bg-white text-[#050505] px-8 py-3.5 text-[15px] font-bold hover:bg-gray-200 hover:-translate-y-0.5 shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-300"
+        (click)="openModal()">
+        Publier un mémoire
+      </a>
+      <!-- Bouton ghost bords droits -->
+      <a href="#"
+        class="inline-flex items-center justify-center bg-transparent border-b border-transparent text-white/80 hover:text-white hover:border-white px-5 py-3.5 text-[15px] font-semibold transition-all duration-300 group">
+        Explorer le catalogue
+        <span class="ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== Visuel Principal (Hero Image) ===== -->
+  <!-- ===== Visuel Principal (Hero Image dans un Cadre Glassmorphism) ===== -->
+  <div id="hero-mockup-wrapper" class="z-10 relative w-full max-w-[1536px] mx-auto origin-top px-4 md:px-8">
+
+    <!-- Ambiance 3D Gradient Glow animée -->
+    <div
+      class="absolute -top-[40px] -inset-x-12 bottom-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_0%,rgba(28,151,109,0.15)_0%,transparent_60%),radial-gradient(ellipse_70%_80%_at_80%_10%,rgba(249,187,25,0.1)_0%,transparent_60%)] blur-[80px] -z-10 mix-blend-screen pointer-events-none animate-glow-move">
+    </div>
+
+    <!-- Le "Cadre" Simple Glassmorphism -->
+    <div
+      class="rounded-[20px] md:rounded-[32px] overflow-hidden border border-white/[0.12] bg-white/[0.02] backdrop-blur-3xl shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_50px_100px_rgba(0,0,0,0.8)] relative z-10 p-2 md:p-3 flex flex-col">
+
+      <!-- Corps du Mockup (juste l'image) -->
+      <div
+        class="relative w-full h-[450px] md:h-[750px] rounded-[16px] md:rounded-[24px] overflow-hidden bg-[#0a0a0a] shadow-inner">
+
+        <!-- Image intégrée -->
+        <img src="/assets/images/hero.jpg" alt="Aperçu FriareLibrary"
+          class="absolute inset-0 w-full h-full object-cover opacity-[0.85] hover:opacity-100 transition-opacity duration-1000" />
+
+        <!-- Overlay très subtil pour se fondre avec le contour -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#050505]/60 via-transparent to-transparent pointer-events-none">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

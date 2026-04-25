@@ -1,0 +1,51 @@
+<section class="library-hero" (mousemove)="onMouseMove($event)">
+  <!-- Stars Background (Parallax from Home) -->
+  <div class="stars-container">
+    <div id="library-stars-parallax" class="stars-parallax">
+      <div id="lib-stars-1" class="stars-layer">
+        <div class="stars-inner" [ngStyle]="{'box-shadow': stars1}"></div>
+        <div class="stars-inner stars-inner--repeat" [ngStyle]="{'box-shadow': stars1}"></div>
+      </div>
+      <div id="lib-stars-2" class="stars-layer">
+        <div class="stars-inner stars-inner--medium" [ngStyle]="{'box-shadow': stars2}"></div>
+        <div class="stars-inner stars-inner--medium stars-inner--repeat" [ngStyle]="{'box-shadow': stars2}"></div>
+      </div>
+      <div id="lib-stars-3" class="stars-layer">
+        <div class="stars-inner stars-inner--large" [ngStyle]="{'box-shadow': stars3}"></div>
+        <div class="stars-inner stars-inner--large stars-inner--repeat" [ngStyle]="{'box-shadow': stars3}"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="library-hero__container">
+    
+    <!-- Main Title with Rotating Words -->
+    <h1 class="library-hero__title">
+      <span class="title-static">Un catalogue</span>
+      <div class="title-slider">
+        <div class="title-track" [style.transform]="'translateY(-' + (currentTitleIndex() * 84) + 'px)'">
+          <div *ngFor="let title of titles" class="title-word">
+            {{ title }}
+          </div>
+        </div>
+      </div>
+    </h1>
+
+    <p class="library-hero__desc">
+      Explorez des milliers de mémoires, thèses et articles de recherche issus des meilleures institutions académiques d'Afrique francophone.
+    </p>
+
+    <!-- CTAs -->
+    <div class="library-hero__actions">
+      <button class="library-hero__btn library-hero__btn--primary">
+        Soumettre un article
+      </button>
+      <a href="#catalogue" class="library-hero__btn library-hero__btn--explore">
+        Explorer le catalogue <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="library-hero__glow"></div>
+</section>

@@ -1,0 +1,181 @@
+/* ==============================================================================
+   THEMATIQUES COMPONENT STYLES
+   Bento / Glassmorphism specific - matching HowToWork style securely
+   ============================================================================== */
+
+.thematiques {
+  background-color: #000000;
+  padding: 120px 24px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Séparation */
+}
+
+.thematiques__container {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* En-tête */
+.thematiques__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.thematiques__title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.thematiques__subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+/* Carrousel Wrapper (masquage dégradé sur les bords pour l'immersion) */
+.thematiques__carousel-wrapper {
+  position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent, white 5%, white 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, white 5%, white 95%, transparent);
+}
+
+/* Le Container fixe */
+.thematiques__carousel {
+  overflow: hidden;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* La piste animée qui contient les éléments dupliqués */
+.thematiques__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+  padding: 0 12px;
+}
+
+/* Pause l'animation au survol */
+.thematiques__carousel:hover .thematiques__track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate half the total width of the track (the duplicated set) */
+    transform: translateX(calc(-50% - 12px)); /* -12px to account for exactly half of the total gap spacing */
+  }
+}
+
+/* Carte Bento (Slider Item) */
+.thematiques__card {
+  position: relative;
+  width: 320px;
+  flex-shrink: 0;
+  background-color: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.thematiques__card:active {
+  cursor: grabbing;
+}
+
+.thematiques__card:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Orbe lumineux à l'intérieur */
+.thematiques__card-glow {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.thematiques__card:hover .thematiques__card-glow {
+  opacity: 0.4;
+  transform: scale(1.5);
+}
+
+/* Contenu des Cartes */
+.thematiques__icon-wrapper {
+  margin-bottom: auto;
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thematiques__icon {
+  opacity: 0.9;
+}
+
+.thematiques__card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 10;
+}
+
+.thematiques__card-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.thematiques__count {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 100px;
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
